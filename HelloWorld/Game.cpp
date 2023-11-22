@@ -1,8 +1,10 @@
 #define PLAY_IMPLEMENTATION
 #include "Game.h"
 Apple apple;
+SnakePart snakePart;
 bool appleOnMap = false;
 int frameCounter;
+bool SnakeOnMap = false;
 void StepFrame(float elapsedTime)
 {	
 	
@@ -22,6 +24,12 @@ void StepFrame(float elapsedTime)
 		frameCounter = 0;
 	}
 	frameCounter++;
+
+	if (SnakeOnMap == false)
+	{
+		snakePart.DrawSnake();
+	}
+	
 }
 
 
