@@ -1,6 +1,7 @@
 #pragma once
 #include "Game.h"
 #include "Constants.h"
+using namespace Play;
 
 
 class SnakePart

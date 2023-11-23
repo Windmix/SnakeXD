@@ -9,7 +9,7 @@ bool appleOnMap = false;
 int frameCounter;
 bool SnakeOnMap = false;
 void StepFrame(float elapsedTime)
-{
+{	
 	
 	if (appleOnMap == false)
 	{
@@ -26,6 +26,11 @@ void StepFrame(float elapsedTime)
 	snakePart.DrawSnake();
 	newSnakepart.DrawSnake();
 	frameCounter++;
+
+	if (SnakeOnMap == false)
+	{
+		snakePart.DrawSnake();
+	}
 	
 }
 
