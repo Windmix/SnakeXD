@@ -2,7 +2,7 @@
 #include "Game.h"
 
 SnakePart snakePart;
-SnakePart newSnakepart; 
+
 bool appleOnMap = false;
 int frameCounter;
 Apple apple;
@@ -18,15 +18,19 @@ void StepFrame(float elapsedTime)
 	{
 		apple.DrawApple();
 	}
-	if (Play::KeyDown(VK_RETURN) and frameCounter>6)
+	if (Play::KeyDown(VK_RETURN))
 	{
 		appleOnMap = false;
+		
+	}
+	
+	if (Play::KeyDown(VK_RIGHT) and frameCounter>5) //Will be made part of move later but was just used to test.
+	{
+		snakePart.position += Point2D(10,0);
 		frameCounter = 0;
 	}
-	snakePart.position = Point2D(50, 50);
-	newSnakepart.position = Point2D(70, 50);
 	snakePart.DrawSnake();
-	newSnakepart.DrawSnake();
+	
 	frameCounter++;
 
 }
