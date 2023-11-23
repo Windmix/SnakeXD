@@ -2,12 +2,17 @@
 #include "Game.h"
 class Snake
 {
+
+public:
 	Snake();
 	~Snake();
-
+	
+	Heading direction;
 	//SnakePart* snakePointer;
 	int snakePartAmount=1;
+	void HandleInput();
 
-	bool isColliding(const Apple& apple);
+	void Move();
+	//bool isColliding(const Apple& apple);
 };
 
