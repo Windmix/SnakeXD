@@ -1,37 +1,38 @@
 #define PLAY_IMPLEMENTATION
 #include "Game.h"
-Apple apple;
-SnakePart *snakePart = new SnakePart();
+
+SnakePart snakePart;
+
 bool appleOnMap = false;
 int frameCounter;
-bool SnakeOnMap = false;
-int framecounter2 = 0;
+Apple apple;
 void StepFrame(float elapsedTime)
 {	
 	
+	if (appleOnMap == false)
+	{
+		apple = Apple();
+		appleOnMap = true;
+	}
 	if (appleOnMap == true)
 	{
 		apple.DrawApple();
 	}
-	if (appleOnMap == false)
-	{
-		apple.RandomizePosition();
-		apple.DrawApple();
-		appleOnMap = apple.appleOnMap;
-	}
-	if (Play::KeyDown(VK_RETURN) and frameCounter>6)
+	if (Play::KeyDown(VK_RETURN))
 	{
 		appleOnMap = false;
+		
+	}
+	
+	if (Play::KeyDown(VK_RIGHT) and frameCounter>5) //Will be made part of move later but was just used to test.
+	{
+		snakePart.position += Point2D(10,0);
 		frameCounter = 0;
 	}
+	snakePart.DrawSnake();
+	
 	frameCounter++;
 
-	if (!SnakeOnMap)
-	{
-
-		snakePart->DrawSnake();
-
-	}
 }
 
 

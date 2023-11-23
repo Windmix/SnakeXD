@@ -2,16 +2,18 @@
 #include "Game.h"
 #include "Constants.h"
 
+
 class Apple
 {
 public:
-	
+	Apple();
+	//Dennis
 	Point2D position;
-	bool appleOnMap;
+	
 	int appleRadius= 10;
 
-	void DrawApple(); //Dennis
-	void RandomizePosition();
+	void DrawApple(); 
+	
 
 };
 

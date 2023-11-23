@@ -3,15 +3,19 @@
 #include "Constants.h"
 using namespace Play;
 
+
 class SnakePart
 {
+
 public:
-	SnakePart();
+	SnakePart(); 
+
+	Play::Colour color=Play::Colour(0,0,0);
 	//Am Thepphithak Seekaew
-	Point2D position = {width - 200, height - 180};
-	Colour theSnakeColour = cGreen;
-	bool SnakeOnMap;
+	Point2D position;
+	
 	int SnakeRadius = 10;
 	void DrawSnake();
-	void RandomSetColour();
+
+	
 };
