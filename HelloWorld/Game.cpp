@@ -2,23 +2,25 @@
 #include "Game.h"
 
 SnakePart snakePart;
-
 SnakePart newSnakepart; 
-
 bool appleOnMap = false;
 int frameCounter;
-bool SnakeOnMap = false;
+Apple apple;
 void StepFrame(float elapsedTime)
 {	
 	
 	if (appleOnMap == false)
 	{
-		
+		apple = Apple();
+		appleOnMap = true;
+	}
+	if (appleOnMap == true)
+	{
+		apple.DrawApple();
 	}
 	if (Play::KeyDown(VK_RETURN) and frameCounter>6)
 	{
-		
-		
+		appleOnMap = false;
 		frameCounter = 0;
 	}
 	snakePart.position = Point2D(50, 50);
@@ -27,11 +29,6 @@ void StepFrame(float elapsedTime)
 	newSnakepart.DrawSnake();
 	frameCounter++;
 
-	if (SnakeOnMap == false)
-	{
-		snakePart.DrawSnake();
-	}
-	
 }
 
 
