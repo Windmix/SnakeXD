@@ -25,9 +25,9 @@ void StepFrame(float elapsedTime)  //Dennis
 		appleOnMap = false;
 		
 	}
+	snake.HandleInput();
 	if(frameCounter==10) 
 	{
-		snake.HandleInput();
 		snake.Move();
 		frameCounter = 0;
 
