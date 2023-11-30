@@ -1,13 +1,38 @@
 #include "Snake.h"
-Snake::Snake()
-{
+Snake::Snake() //Dennis
+{ 
+	snakePartAmount = 2;
+	bodyPointer = new SnakePart[snakePartAmount];
+	snakeHead.position = Point2D(WIDTH / 2, HEIGHT / 2);
+	firstSnakeBody.position = Point2D(snakeHead.position.x, snakeHead.position.y - 20);
+	bodyPointer[0] = snakeHead;
+	bodyPointer[1] = firstSnakeBody;
 	direction = NORTH;
 }
 Snake::~Snake()
 {
-
+	delete[] bodyPointer;
 }
-void Snake::HandleInput() //Code works
+void Snake::AddPart()
+{
+	snakePartAmount++; 
+	SnakePart* newBody = new SnakePart[snakePartAmount];
+	for (int i = 0; i < snakePartAmount - 1; i++)
+	{
+		newBody[i] = bodyPointer[i];
+	}
+	SnakePart newPart;
+	newPart.position = newBody[snakePartAmount - 1].position;
+	newBody[snakePartAmount] = newPart; 
+
+	delete[] bodyPointer;
+
+	bodyPointer = newBody;
+
+	delete[] newBody;
+	
+}
+void Snake::HandleInput() //Dennis
 {
 	if (Play::KeyDown(VK_UP))
 	{
@@ -27,23 +52,39 @@ void Snake::HandleInput() //Code works
 	}
 
 }
-void Snake::Move() //Code confirmed works, just need to add the snakePart pointer array etc
+void Snake::Move() //Dennis
 {
 	if (direction == NORTH)
 	{
-		
+		for (int i = snakePartAmount - 1; i > 0; i--)
+		{
+			bodyPointer[i].position = bodyPointer[i - 1].position;
+		}
+		bodyPointer[0].position = bodyPointer[0].position + Point2D(0, -20);
 	}
 	if (direction == SOUTH) 
 	{
-		
+		for (int i = snakePartAmount - 1; i > 0; i--)
+		{
+			bodyPointer[i].position = bodyPointer[i - 1].position;
+		}
+		bodyPointer[0].position = bodyPointer[0].position + Point2D(0, 20);
 	}
 	if (direction == WEST) 
 	{
-		
+		for (int i = snakePartAmount - 1; i > 0; i--)
+		{
+			bodyPointer[i].position = bodyPointer[i - 1].position;
+		}
+		bodyPointer[0].position = bodyPointer[0].position + Point2D(0, -20);
 	}
 	if (direction == EAST) 
 	{
-		
+		for (int i = snakePartAmount - 1; i > 0; i--)
+		{
+			bodyPointer[i].position = bodyPointer[i - 1].position;
+		}
+		bodyPointer[0].position = bodyPointer[0].position + Point2D(0, 20);
 	}
 }
 /*bool Snake::isColliding(const Apple& apple)

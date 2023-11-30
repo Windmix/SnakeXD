@@ -7,7 +7,7 @@
 void MainGameEntry( PLAY_IGNORE_COMMAND_LINE )
 {
 	SnakePart* snakePart = new SnakePart();
-	Play::CreateManager( width, height, scale );
+	Play::CreateManager( WIDTH, HEIGHT, SCALE );
 }
 
 // Called by PlayBuffer every frame (60 times a second!)
