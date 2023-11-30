@@ -1,19 +1,12 @@
 #pragma once
-#include "Game.h"
-#include "Constants.h"
 
+#include "GameObject.h"
 
-class Apple
-{
+class Apple : public GameObject {
 public:
 	Apple();
 	//Dennis
-	Point2D position;
-	
-	int appleRadius= 10;
 
 	void DrawApple(); 
-	
-
 };
 

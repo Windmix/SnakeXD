@@ -1,6 +1,8 @@
 #define PLAY_IMPLEMENTATION
 #include "Game.h"
 
+#include "Apple.h"
+#include "Snake.h"
 
 Snake snake; 
 bool appleOnMap = false;
@@ -23,13 +25,17 @@ void StepFrame(float elapsedTime)  //Dennis
 		appleOnMap = false;
 		
 	}
-	snake.HandleInput();
-	if(frameCounter>5) 
+	if(frameCounter==10) 
 	{
+		snake.HandleInput();
 		snake.Move();
 		frameCounter = 0;
 
 	}
+	if (snake.Collide(apple)) {
+		snake.Grow();
+		apple = Apple();
+  }
 	snake.Draw();
 	
 	frameCounter++;

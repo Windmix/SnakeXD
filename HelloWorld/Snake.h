@@ -1,24 +1,25 @@
 #pragma once
-#include "Game.h"
+
+#include "SnakePart.h"
+#include "Apple.h"
 #include "Constants.h"
 
-class Snake
-{
+#include <vector>
+
+class Snake {
+private:
+	Heading heading;
+	std::vector<SnakePart> body;
+	Point2D prevTail;
 
 public:
 	Snake();
 	~Snake();
-	Heading direction; 
-	int snakePartAmount;
 
-	SnakePart* snakePointer;
-	SnakePart snakeHead; 
-	SnakePart firstSnakeBody;  
-
-	void Draw();
-	void AddPart();
+	void Draw() const;
 	void HandleInput();
 	void Move();
-	//bool isColliding(const Apple& apple);
+	void Grow();
+	bool Collide(const Apple& obj);
 };
 //Dennis

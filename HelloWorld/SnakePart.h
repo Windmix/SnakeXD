@@ -1,22 +1,16 @@
 #pragma once
-#include "Game.h"
-#include "Constants.h"
 
+#include "GameObject.h"
 
-
-class SnakePart
-{
+class SnakePart : public GameObject {
+private:
+	Play::Colour color=Play::Colour(0,0,0);
 
 public:
 	SnakePart(); 
 
-	Play::Colour color=Play::Colour(0,0,0);
 	//Am Thepphithak Seekaew
-	
-	Point2D position;
-	
-	int SnakeRadius = 10;
-	void DrawSnake();
+	void DrawSnakeSegment();
 
-	
+	Play::Colour GetColor() const;
 };

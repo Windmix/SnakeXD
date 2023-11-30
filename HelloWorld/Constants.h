@@ -8,9 +8,9 @@ namespace
 	int TILE_SIZE = 20;
 	enum Heading
 	{
-		NORTH,
-		WEST,
-		EAST,
-		SOUTH
+		NORTH = 0,
+		WEST = 1,
+		EAST = 2,
+		SOUTH = 3,
 	};
 }
