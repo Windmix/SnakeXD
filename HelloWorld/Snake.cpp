@@ -9,7 +9,7 @@ Snake::Snake() //Dennis
 	snakePointer[1] = firstSnakeBody;
 	direction = NORTH;
 }
-Snake::~Snake() //Destructor
+Snake::~Snake() //Destructor, Thepphithak Am Seekaew
 {
 	delete[] snakePointer;
 	snakePointer = nullptr;
