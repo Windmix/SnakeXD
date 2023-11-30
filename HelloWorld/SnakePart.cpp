@@ -23,5 +23,5 @@ SnakePart::SnakePart()
 
 	std::size_t random_index = distribution(gen);
 	color = colours[random_index]; 
-	position = Point2D(100, 100);
+	position = Point2D(-10,-10);
 }

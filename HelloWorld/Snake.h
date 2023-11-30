@@ -12,13 +12,14 @@ public:
 	int snakePartAmount;
 
 	SnakePart* snakePointer;
+	SnakePart* newBody;
 	SnakePart snakeHead; 
 	SnakePart firstSnakeBody;  
 
 	void Draw();
-	void AddPart();
+	void AddPart(); 
 	void HandleInput();
 	void Move();
-	//bool isColliding(const Apple& apple);
+	bool isColliding(const Apple& apple);
 };
 //Dennis

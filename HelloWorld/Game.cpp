@@ -18,17 +18,17 @@ void StepFrame(float elapsedTime)  //Dennis
 	{
 		apple.DrawApple();
 	}
-	if (Play::KeyDown(VK_RETURN) and frameCounter>5)
-	{
-		appleOnMap = false;
-		
-	}
 	snake.HandleInput();
 	if(frameCounter>5) 
 	{
 		snake.Move();
 		frameCounter = 0;
 
+	}
+	if (snake.isColliding(apple))
+	{
+		appleOnMap = false;
+		snake.AddPart();
 	}
 	snake.Draw();
 	
