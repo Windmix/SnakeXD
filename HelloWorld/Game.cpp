@@ -1,7 +1,10 @@
 #define PLAY_IMPLEMENTATION
 #include "Game.h"
 
-SnakePart snakePart;
+#include "Apple.h"
+#include "Snake.h"
+
+
 Snake snake; 
 bool appleOnMap = false;
 int frameCounter;
@@ -24,13 +27,17 @@ void StepFrame(float elapsedTime)
 		
 	}
 	snake.HandleInput();
-	if(frameCounter>5) 
+	if(frameCounter==10) 
 	{
 		snake.Move();
 		frameCounter = 0;
 
 	}
-	snakePart.DrawSnake();
+	if (snake.Collide(apple)) {
+		snake.Grow();
+		apple = Apple();
+	}
+	snake.Draw();
 	
 	frameCounter++;
 

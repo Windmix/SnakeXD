@@ -2,18 +2,19 @@
 #include <random>
 
 //Thepphithak Am Seekaew
-void SnakePart::DrawSnake()
-{
-	Play::DrawCircle(position,SnakeRadius, color);
+void SnakePart::DrawSnakeSegment() {
+	Play::DrawCircle(position, radius, color);
 	
 }
 
+Play::Colour SnakePart::GetColor() const {
+	return color;
+}
 
-SnakePart::SnakePart()
-{
 
+SnakePart::SnakePart() {
 	// vector array of random colors
-	std::vector <Play::Colour> colours = { Play::cCyan, Play::cBlue, Play::cGrey, Play::cRed, Play::cGreen, Play::cMagenta, Play::cWhite }; 
+	std::vector <Play::Colour> colours = { Play::cCyan, Play::cBlue, Play::cGrey, Play::cGreen, Play::cMagenta, Play::cWhite }; 
 
 	//randomizing the color in the vector array.
 	std::random_device RandomColour;
@@ -23,4 +24,5 @@ SnakePart::SnakePart()
 	std::size_t random_index = distribution(gen);
 	color = colours[random_index]; 
 	position = Point2D(100, 100);
+	radius = 10;
 }

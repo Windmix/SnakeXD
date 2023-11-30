@@ -1,53 +1,61 @@
 #include "Snake.h"
-Snake::Snake()
-{
-	direction = NORTH;
-}
-Snake::~Snake()
-{
 
+Snake::Snake() {
+	heading = NORTH;
+	body.push_back(SnakePart());
 }
-void Snake::HandleInput() //Code works
-{
-	if (Play::KeyDown(VK_UP))
-	{
-		direction = NORTH;
-	}
-	if (Play::KeyDown(VK_DOWN))
-	{
-		direction = SOUTH;
-	}
-	if (Play::KeyDown(VK_LEFT))
-	{
-		direction = WEST;
-	}
-	if (Play::KeyDown(VK_RIGHT))
-	{
-		direction = EAST;
-	}
 
-}
-void Snake::Move() //Code confirmed works, just need to add the snakePart pointer array etc
-{
-	if (direction == NORTH)
-	{
-		
-	}
-	if (direction == SOUTH) 
-	{
-		
-	}
-	if (direction == WEST) 
-	{
-		
-	}
-	if (direction == EAST) 
-	{
-		
-	}
-}
-/*bool Snake::isColliding(const Apple& apple)
-{
+Snake::~Snake() {}
 
-	return true;
-}*/
+void Snake::Draw() const {
+	for (const auto& item : body) {
+		Play::DrawCircle(item.position, item.radius, item.GetColor());
+	}
+}
+
+void Snake::HandleInput() {
+	if (Play::KeyDown(VK_UP)) {
+		heading = NORTH;
+	}
+	if (Play::KeyDown(VK_DOWN)) {
+		heading = SOUTH;
+	}
+	if (Play::KeyDown(VK_LEFT)) {
+		heading = WEST;
+	}
+	if (Play::KeyDown(VK_RIGHT)) {
+		heading = EAST;
+	}
+}
+
+void Snake::Move() {
+	for (std::size_t i = body.size() - 1; i > 0; --i) {
+		body[i].position = body[i - 1].position;
+	}
+	
+	prevTail = body.back().position;
+
+	switch (heading) {
+	case NORTH:
+		body[0].position.y -= 2 * body[0].radius;
+		break;
+	case SOUTH:
+		body[0].position.y += 2 * body[0].radius;
+		break;
+	case WEST:
+		body[0].position.x -= 2 * body[0].radius;
+		break;
+	case EAST:
+		body[0].position.x += 2 * body[0].radius;
+		break;
+	}
+}
+
+void Snake::Grow() {
+	body.push_back(SnakePart());
+	body.back().position = prevTail;
+}
+
+bool Snake::Collide(const Apple& obj) {
+	return body[0].position == obj.position;
+}
