@@ -1,11 +1,12 @@
 #include "Snake.h"
-Snake::Snake()
+Snake::Snake() //constructor for snake
 {
 	direction = NORTH;
 }
-Snake::~Snake()
+Snake::~Snake() //destructor for snake
 {
-
+	/*delete[] snakePointer;
+	snakePointer = nullptr;*/
 }
 void Snake::HandleInput() //Code works
 {
