@@ -6,7 +6,7 @@ namespace
 	int HEIGHT = 360;  //screen height
 	int SCALE = 3; // window multiplier for application scale
 	int TILE_SIZE = 20;
-	enum Heading
+	enum Heading //Describes direction of snake
 	{
 		NORTH,
 		WEST,

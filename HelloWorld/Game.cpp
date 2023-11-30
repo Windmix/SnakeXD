@@ -9,16 +9,16 @@ Apple apple;
 void StepFrame(float elapsedTime)  //Dennis
 {	
 	
-	if (appleOnMap == false)
+	if (appleOnMap == false)// if apple isnt on map, make call apple constructor which randomizes location again.
 	{
-		apple = Apple();
+		apple = Apple(); 
 		appleOnMap = true;
 	}
 	if (appleOnMap == true)
 	{
 		apple.DrawApple();
 	}
-	snake.HandleInput();
+	snake.HandleInput(); //handle input every frame but only move once every 6. can be a bit janky but otherwise sometimes it wont listen to what you press.
 	if(frameCounter>5) 
 	{
 		snake.Move();
@@ -27,12 +27,12 @@ void StepFrame(float elapsedTime)  //Dennis
 	}
 	if (snake.isColliding(apple))
 	{
-		appleOnMap = false;
-		snake.AddPart();
+		appleOnMap = false; //makes apple dissapear and gives it a new location
+		snake.AddPart(); 
 	}
 	snake.Draw();
 	
-	frameCounter++;
+	frameCounter++; //keeps track of frames
 
 }
 
