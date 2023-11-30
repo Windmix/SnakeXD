@@ -8,8 +8,10 @@ public:
 	~Snake();
 	
 	Heading direction;
-	//SnakePart* snakePointer;
-	int snakePartAmount=1;
+	int snakePartAmount = 1;
+	SnakePart* snakePointer;
+	newSnakeArray = new snakePointer[snakePartAmount]
+	void Draw();
 	void HandleInput();
 
 	void Move();

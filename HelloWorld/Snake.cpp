@@ -1,12 +1,20 @@
 #include "Snake.h"
 Snake::Snake() //constructor for snake
 {
+	snakePointerArray = new SnakePart[snakePartAmount];
 	direction = NORTH;
 }
 Snake::~Snake() //destructor for snake
 {
-	/*delete[] snakePointer;
-	snakePointer = nullptr;*/
+	delete[] snakePointerArray;
+	snakePointerArray = nullptr;
+}
+void Snake::Draw() //draw snake loop
+{
+	for (int i = 0; i < snakePartAmount; i++)
+	{
+		snakePointerArray[i].DrawSnake();
+	}
 }
 void Snake::HandleInput() //Code works
 {
