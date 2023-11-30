@@ -4,12 +4,11 @@
 #include "Apple.h"
 #include "Snake.h"
 
-
 Snake snake; 
 bool appleOnMap = false;
 int frameCounter;
 Apple apple;
-void StepFrame(float elapsedTime) 
+void StepFrame(float elapsedTime)  //Dennis
 {	
 	
 	if (appleOnMap == false)
@@ -21,7 +20,7 @@ void StepFrame(float elapsedTime)
 	{
 		apple.DrawApple();
 	}
-	if (Play::KeyDown(VK_RETURN))
+	if (Play::KeyDown(VK_RETURN) and frameCounter>5)
 	{
 		appleOnMap = false;
 		
@@ -36,7 +35,7 @@ void StepFrame(float elapsedTime)
 	if (snake.Collide(apple)) {
 		snake.Grow();
 		apple = Apple();
-	}
+  }
 	snake.Draw();
 	
 	frameCounter++;

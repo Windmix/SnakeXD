@@ -1,11 +1,11 @@
 #pragma once
-namespace
+namespace 
 {
 	//Dennis
-	int width = 640;  //screen width
-	int height = 360;  //screen height
-	int scale = 3; // window multiplier for application scale
-
+	int WIDTH = 640;  //screen width
+	int HEIGHT = 360;  //screen height
+	int SCALE = 3; // window multiplier for application scale
+	int TILE_SIZE = 20;
 	enum Heading
 	{
 		NORTH = 0,

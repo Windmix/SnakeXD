@@ -22,4 +22,4 @@ public:
 	void Grow();
 	bool Collide(const Apple& obj);
 };
-
+//Dennis
