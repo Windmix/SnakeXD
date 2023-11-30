@@ -3,9 +3,8 @@
 #include <random>
 
 //Thepphithak Am Seekaew
-void SnakePart::DrawSnake()
-{
-	Play::DrawCircle(position,SnakeRadius, color);
+void SnakePart::DrawSnake() {
+	Play::DrawCircle(position, snakeRadius, color);
 	
 }
 
@@ -14,7 +13,7 @@ SnakePart::SnakePart()
 {
 
 	// vector array of random colors
-	std::vector <Play::Colour> colours = { Play::cCyan, Play::cBlue, Play::cGrey, Play::cRed, Play::cGreen, Play::cMagenta, Play::cWhite }; 
+	std::vector <Play::Colour> colours = { Play::cCyan, Play::cBlue, Play::cGrey, Play::cGreen, Play::cMagenta, Play::cWhite }; 
 
 	//randomizing the color in the vector array.
 	std::random_device RandomColour;

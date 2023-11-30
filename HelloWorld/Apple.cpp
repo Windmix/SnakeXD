@@ -21,4 +21,5 @@ Apple::Apple()
 	//By only letting circles spawn every 20 pixels we generate a grid system
 	position = Point2D(randomX, randomY); 
 	 //Generates a random x and y value to be used to make position for the Point2D declared in the Apple class
+	appleRadius = 10;
 }

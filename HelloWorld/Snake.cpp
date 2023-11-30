@@ -29,12 +29,12 @@ void Snake::AddPart()
 	}
 	SnakePart newPart;
 	newPart.position = newBody[snakePartAmount - 1].position;
-	newBody[snakePartAmount-1] = newPart;
-
+	newBody[snakePartAmount - 1] = newPart;
 	delete[] snakePointer;
-
 	snakePointer = newBody;
+
 	newBody = nullptr;
+
 }
 void Snake::Draw() //draw snake loop
 {
@@ -61,42 +61,50 @@ void Snake::HandleInput() //Dennis
 	{
 		direction = EAST;
 	}
-
 }
-void Snake::Move() //Dennis
+
+void Snake::Move() 
 {
 	for (int i = snakePartAmount - 1; i > 0; i--)
 	{
-		
+
 		snakePointer[i].position = snakePointer[i - 1].position;
 	}
+	
+	
 
 	if (direction == NORTH)
 	{
+		
+		
 		int newY = snakePointer[0].position.y - 20 + HEIGHT;
-		snakePointer[0].position.y = newY % HEIGHT; 
+		snakePointer[0].position.y = newY % HEIGHT;
 	}
-	if (direction == SOUTH) 
+	if (direction == SOUTH)
 	{
+		
 		int newY = snakePointer[0].position.y + 20;
 		snakePointer[0].position.y = newY % HEIGHT;
 	}
-	if (direction == WEST) 
+	if (direction == WEST)
 	{
 		int newX = snakePointer[0].position.x - 20 + WIDTH;
 		snakePointer[0].position.x = newX % WIDTH;
 	}
-	if (direction == EAST) 
+	if (direction == EAST)
 	{
 		int newX = snakePointer[0].position.x + 20;
 		snakePointer[0].position.x = newX % WIDTH;
 	}
+
 }
+
+
 bool Snake::isColliding(const Apple& apple)
 {
 	int xDiff = int(apple.position.x) - int(snakePointer[0].position.x);
 	int yDiff = int(apple.position.y) - int(snakePointer[0].position.y);
-	int radii = apple.appleRadius + snakePointer[0].SnakeRadius;
+	int radii = apple.appleRadius + snakePointer[0].snakeRadius;
 
 	
 	return((xDiff * xDiff) + (yDiff * yDiff) < radii * radii);
