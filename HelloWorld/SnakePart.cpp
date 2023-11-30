@@ -1,4 +1,5 @@
-#include "snakePart.h"
+#include "Game.h"
+#include "SnakePart.h"
 #include <random>
 
 //Thepphithak Am Seekaew

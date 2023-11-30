@@ -1,5 +1,5 @@
 #pragma once
-namespace
+namespace 
 {
 	//Dennis
 	int WIDTH = 640;  //screen width

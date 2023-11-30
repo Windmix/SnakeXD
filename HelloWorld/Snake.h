@@ -1,5 +1,6 @@
 #pragma once
 #include "Game.h"
+#include "Constants.h"
 
 class Snake
 {
@@ -7,17 +8,14 @@ class Snake
 public:
 	Snake();
 	~Snake();
-	
-	Heading direction;
-	int snakePartAmount = 1;
-	SnakePart* snakePointer;
-	newSnakeArray = new snakePointer[snakePartAmount]
-	void Draw();
-	SnakePart* bodyPointer;
-	SnakePart snakeHead;
-	SnakePart firstSnakeBody; 
+	Heading direction; 
 	int snakePartAmount;
 
+	SnakePart* snakePointer;
+	SnakePart snakeHead; 
+	SnakePart firstSnakeBody;  
+
+	void Draw();
 	void AddPart();
 	void HandleInput();
 	void Move();
