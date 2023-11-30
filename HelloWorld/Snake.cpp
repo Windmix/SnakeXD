@@ -36,7 +36,7 @@ void Snake::AddPart() //Dennis
 	newBody = nullptr;
 
 }
-void Snake::Draw() //draw snake loop
+void Snake::Draw() //draw snake loop Thepphithak Am Seekaew
 {
 	for (int i = 0; i < snakePartAmount; i++)
 	{

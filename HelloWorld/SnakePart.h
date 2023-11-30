@@ -2,14 +2,13 @@
 #include "Game.h"
 
 
-class SnakePart
+class SnakePart //Am Thepphithak Seekaew
 {
 
 public:
 	SnakePart();
 
 	Play::Colour color = Play::Colour(0, 0, 0);
-	//Am Thepphithak Seekaew
 
 	Point2D position;
 

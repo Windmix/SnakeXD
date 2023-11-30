@@ -2,8 +2,9 @@
 #include "SnakePart.h"
 #include <random>
 
-//Thepphithak Am Seekaew
-void SnakePart::DrawSnake() {
+//drawing the snake
+void SnakePart::DrawSnake()//Thepphithak Am Seekaew 
+{ 
 	Play::DrawCircle(position, snakeRadius, color);
 	
 }
