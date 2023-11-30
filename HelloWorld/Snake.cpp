@@ -14,16 +14,16 @@ void Snake::Draw() const {
 }
 
 void Snake::HandleInput() {
-	if (Play::KeyDown(VK_UP)) {
+	if (Play::KeyDown(VK_UP) && heading != SOUTH) {
 		heading = NORTH;
 	}
-	if (Play::KeyDown(VK_DOWN)) {
+	if (Play::KeyDown(VK_DOWN) && heading != NORTH) {
 		heading = SOUTH;
 	}
-	if (Play::KeyDown(VK_LEFT)) {
+	if (Play::KeyDown(VK_LEFT) && heading != EAST) {
 		heading = WEST;
 	}
-	if (Play::KeyDown(VK_RIGHT)) {
+	if (Play::KeyDown(VK_RIGHT) && heading != WEST) {
 		heading = EAST;
 	}
 }
