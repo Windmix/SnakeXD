@@ -31,6 +31,17 @@ void Snake::AddPart()
 
 	delete[] newBody;
 	
+Snake::~Snake() //destructor for snake
+{
+	delete[] snakePointerArray;
+	snakePointerArray = nullptr;
+}
+void Snake::Draw() //draw snake loop
+{
+	for (int i = 0; i < snakePartAmount; i++)
+	{
+		snakePointerArray[i].DrawSnake();
+	}
 }
 void Snake::HandleInput() //Dennis
 {
