@@ -21,21 +21,15 @@ void StepFrame(float elapsedTime)
 	{
 		apple.DrawApple();
 	}
-	if (Play::KeyDown(VK_RETURN))
+	if(frameCounter==6) 
 	{
-		appleOnMap = false;
-		
-	}
-	if(frameCounter==10) 
-	{
-		snake.HandleInput();
 		snake.Move();
 		frameCounter = 0;
 
 	}
 	if (snake.Collide(apple)) {
 		snake.Grow();
-		apple = Apple();
+		appleOnMap = false;
 	}
 	snake.Draw();
 	
