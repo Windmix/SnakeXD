@@ -20,6 +20,6 @@ public:
 	void AddPart(); 
 	void HandleInput();
 	void Move();
-	bool isColliding(const Apple& apple);
+	bool isColliding(const Apple* apple);
 };
 //Dennis

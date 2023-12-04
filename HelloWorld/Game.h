@@ -8,3 +8,4 @@
 
 
 void StepFrame(float elapsedTime);
+void DeleteApple();

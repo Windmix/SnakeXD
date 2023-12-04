@@ -9,9 +9,7 @@ public:
 	Apple();
 	//Dennis
 	Point2D position;
-
 	int appleRadius = 10;
-
 	void DrawApple();
 
 

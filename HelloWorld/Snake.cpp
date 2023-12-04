@@ -104,11 +104,11 @@ void Snake::Move()  //Dennis
 }
 
 
-bool Snake::isColliding(const Apple& apple)//Checks for collision between the first snakepart in the snake which is the head
+bool Snake::isColliding(const Apple* apple)//Checks for collision between the first snakepart in the snake which is the head
 {
-	int xDiff = int(apple.position.x) - int(snakePointer[0].position.x);
-	int yDiff = int(apple.position.y) - int(snakePointer[0].position.y);
-	int radii = apple.appleRadius + snakePointer[0].snakeRadius;
+	int xDiff = int(apple->position.x) - int(snakePointer[0].position.x);
+	int yDiff = int(apple->position.y) - int(snakePointer[0].position.y);
+	int radii = apple->appleRadius + snakePointer[0].snakeRadius;
 	
 	
 	return((xDiff * xDiff) + (yDiff * yDiff) < radii * radii);

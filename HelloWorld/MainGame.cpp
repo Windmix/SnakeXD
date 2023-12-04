@@ -20,5 +20,6 @@ bool MainGameUpdate( float elapsedTime )
 int MainGameExit( void )
 {
 	Play::DestroyManager();
+	DeleteApple();
 	return PLAY_OK;
 }

@@ -5,18 +5,20 @@
 Snake snake; 
 bool appleOnMap = false;
 int frameCounter;
-Apple apple;
+Apple* apple = new Apple;
 void StepFrame(float elapsedTime)  //Dennis
 {	
-	
+
 	if (appleOnMap == false)// if apple isnt on map, make call apple constructor which randomizes location again.
 	{
-		apple = Apple(); 
+		delete apple;
+		apple = new Apple;
+
 		appleOnMap = true;
 	}
 	if (appleOnMap == true)
 	{
-		apple.DrawApple();
+		apple->DrawApple();
 	}
 	snake.HandleInput(); //handle input every frame but only move once every 6. can be a bit janky but otherwise sometimes it wont listen to what you press.
 	if(frameCounter>5) 
@@ -33,7 +35,10 @@ void StepFrame(float elapsedTime)  //Dennis
 	snake.Draw();
 	
 	frameCounter++; //keeps track of frames
-
+}
+void DeleteApple()
+{
+	delete apple;
 }
 
 
