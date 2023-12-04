@@ -5,14 +5,14 @@
 Snake snake; 
 bool appleOnMap = false;
 int frameCounter;
-Apple* apple = new Apple;
+Apple* apple = new Apple; // Thepphithak "Am"
 void StepFrame(float elapsedTime)  //Dennis
 {	
 
 	if (appleOnMap == false)// if apple isnt on map, make call apple constructor which randomizes location again.
 	{
 		delete apple;
-		apple = new Apple;
+		apple = new Apple;  // Thepphithak "Am"
 
 		appleOnMap = true;
 	}
@@ -36,7 +36,7 @@ void StepFrame(float elapsedTime)  //Dennis
 	
 	frameCounter++; //keeps track of frames
 }
-void DeleteApple()
+void DeleteApple()  // Thepphithak "Am"
 {
 	delete apple;
 }
